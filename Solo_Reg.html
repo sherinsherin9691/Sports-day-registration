@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sports Day Registration</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+    }
+
+    body{
+      background:#F5F7FB;
+      color:#111827;
+    }
+
+    .container{
+      display:flex;
+      min-height:100vh;
+    }
+
+    /* ================= SIDEBAR ================= */
+
+    .sidebar{
+      width:260px;
+      background:#fff;
+      border-right:1px solid #E5E7EB;
+      padding:30px 20px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .logo h1{
+      color:#2563EB;
+      font-size:32px;
+      margin-bottom:8px;
+    }
+
+    .logo p{
+      color:#6B7280;
+      font-size:14px;
+    }
+
+    .menu{
+      margin-top:50px;
+    }
+
+    .menu a{
+      display:block;
+      padding:14px 16px;
+      margin-bottom:12px;
+      text-decoration:none;
+      color:#111827;
+      border-radius:12px;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .menu a.active{
+      background:#2563EB;
+      color:#fff;
+    }
+
+    .menu a:hover{
+      background:#EFF6FF;
+    }
+
+    .bottom-links{
+      margin-top:40px;
+    }
+
+    .bottom-links a{
+      display:block;
+      text-decoration:none;
+      color:#6B7280;
+      margin-bottom:18px;
+      font-size:14px;
+    }
+
+    /* ================= MAIN ================= */
+
+    .main{
+      flex:1;
+      padding:40px;
+    }
+
+    .top-nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:40px;
+    }
+
+    .breadcrumb{
+      color:#6B7280;
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    .page-title{
+      font-size:42px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .page-subtitle{
+      color:#6B7280;
+      margin-bottom:30px;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:30px;
+    }
+
+    /* ================= FORM CARD ================= */
+
+    .card{
+      background:#fff;
+      border:1px solid #E5E7EB;
+      border-radius:20px;
+      padding:30px;
+      margin-bottom:30px;
+    }
+
+    .section-title{
+      font-size:24px;
+      font-weight:700;
+      margin-bottom:25px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .form-group{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .form-group.full{
+      grid-column:1/3;
+    }
+
+    label{
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:10px;
+    }
+
+    input,
+    select,
+    textarea{
+      height:52px;
+      border:1px solid #D1D5DB;
+      border-radius:10px;
+      padding:0 16px;
+      font-size:15px;
+      outline:none;
+      transition:0.3s;
+      background:#fff;
+    }
+
+    textarea{
+      height:120px;
+      padding-top:15px;
+      resize:none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus{
+      border-color:#2563EB;
+    }
+
+    /* ================= RIGHT PANEL ================= */
+
+    .event-card{
+      background:#fff;
+      border:1px solid #E5E7EB;
+      border-radius:20px;
+      overflow:hidden;
+      margin-bottom:25px;
+    }
+
+    .event-image{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .event-content{
+      padding:24px;
+    }
+
+    .event-title{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .event-info{
+      color:#6B7280;
+      margin-bottom:12px;
+      font-size:15px;
+    }
+
+    .info-box{
+      background:#EFF6FF;
+      border-radius:18px;
+      padding:24px;
+      margin-bottom:25px;
+    }
+
+    .info-box h3{
+      color:#2563EB;
+      margin-bottom:18px;
+    }
+
+    .info-box ul{
+      padding-left:18px;
+      color:#6B7280;
+      line-height:1.8;
+    }
+
+    /* ================= TERMS ================= */
+
+    .terms{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .terms input{
+      width:18px;
+      height:18px;
+      margin-top:4px;
+    }
+
+    /* ================= BUTTONS ================= */
+
+    .buttons{
+      display:flex;
+      justify-content:space-between;
+      margin-top:30px;
+    }
+
+    .btn{
+      padding:14px 32px;
+      border:none;
+      border-radius:12px;
+      font-size:15px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn-cancel{
+      background:#fff;
+      border:1px solid #D1D5DB;
+    }
+
+    .btn-next{
+      background:#2563EB;
+      color:#fff;
+    }
+
+    .btn-next:hover{
+      background:#1D4ED8;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      margin-top:50px;
+      display:flex;
+      justify-content:space-between;
+      color:#6B7280;
+      font-size:14px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:1200px){
+
+      .layout{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        display:none;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
+      .form-group.full{
+        grid-column:auto;
+      }
+
+      .page-title{
+        font-size:32px;
+      }
+
+      .main{
+        padding:20px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div>
+
+      <div class="logo">
+        <h1>Sports Day '26</h1>
+        <p>Department Central Management Portal</p>
+      </div>
+
+      <div class="menu">
+        <a href="#">Dashboard</a>
+        <a href="#" class="active">New Registration</a>
+        <a href="#">Participants</a>
+        <a href="#">Results</a>
+        <a href="#">Profile</a>
+      </div>
+
+    </div>
+
+    <div class="bottom-links">
+      <a href="#">Help Center</a>
+      <a href="#">Logout</a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+
+  <main class="main">
+
+    <div class="breadcrumb">
+      Events › Solo Events › 100m Sprint › Register
+    </div>
+
+    <h1 class="page-title">Register for 100m Sprint</h1>
+
+    <p class="page-subtitle">
+      Fill in the details below to register for this individual event.
+    </p>
+
+    <div class="layout">
+
+      <!-- LEFT FORM -->
+
+      <div>
+
+        <!-- PERSONAL INFO -->
+
+        <div class="card">
+
+          <h2 class="section-title">Personal Information</h2>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Enter full name">
+            </div>
+
+            <div class="form-group">
+              <label>Register Number *</label>
+              <input type="text" placeholder="Enter register number">
+            </div>
+
+            <div class="form-group">
+              <label>Year / Category *</label>
+              <select>
+                <option>UG 1st Year</option>
+                <option>UG 2nd Year</option>
+                <option>UG 3rd Year</option>
+                <option>PG 1st Year</option>
+                <option>PG 2nd Year</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Date of Birth *</label>
+              <input type="date">
+            </div>
+
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" placeholder="Enter email address">
+            </div>
+
+            <div class="form-group">
+              <label>Gender *</label>
+              <select>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Others</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="text" placeholder="Enter phone number">
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- EMERGENCY -->
+
+        <div class="card">
+
+          <h2 class="section-title">Emergency Contact</h2>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Contact Name *</label>
+              <input type="text" placeholder="Enter contact name">
+            </div>
+
+            <div class="form-group">
+              <label>Relationship *</label>
+              <input type="text" placeholder="Parent, Guardian, Friend">
+            </div>
+
+            <div class="form-group">
+              <label>Contact Number *</label>
+              <input type="text" placeholder="Enter contact number">
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- EVENT INFO -->
+
+        <div class="card">
+
+          <h2 class="section-title">Event Specific Information</h2>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Personal Best</label>
+              <input type="text" placeholder="e.g. 11.20 seconds">
+            </div>
+
+            <div class="form-group">
+              <label>Heat Preference</label>
+              <select>
+                <option>No Preference</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label>Additional Notes</label>
+              <textarea placeholder="Any medical conditions or additional information..."></textarea>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- TERMS -->
+
+        <div class="card">
+
+          <div class="terms">
+            <input type="checkbox">
+
+            <p>
+              I hereby confirm that I am physically fit to participate in this event.
+              I agree to abide by the rules and regulations of Sports Day '26.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+          <button class="btn btn-cancel">
+            Cancel
+          </button>
+
+          <button class="btn btn-next">
+            Next →
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT PANEL -->
+
+      <div>
+
+        <div class="event-card">
+
+          <img
+            class="event-image"
+            src="https://media.istockphoto.com/id/1169738892/photo/athlete-man-preparing-for-run.jpg?s=612x612&w=0&k=20&c=CIiA8NMRNP9Ij1ivtGWobN8D3cA2iOFaJ5DgMfS0CAI="
+          >
+
+          <div class="event-content">
+
+            <h2 class="event-title">100m Sprint</h2>
+
+            <p class="event-info">Individual Track Event</p>
+
+            <p class="event-info">📅 Oct 24, 2026</p>
+
+            <p class="event-info">⏰ 09:00 AM – 11:00 AM</p>
+
+            <p class="event-info">📍 Main Athletics Track</p>
+
+          </div>
+
+        </div>
+
+        <div class="info-box">
+
+          <h3>Registration Tips</h3>
+
+          <ul>
+            <li>Ensure all required fields are filled correctly.</li>
+            <li>You can only register for events within your department.</li>
+            <li>Contact support if you face any issues during registration.</li>
+          </ul>
+
+        </div>
+
+        <div class="info-box">
+
+          <h3>Event Rules</h3>
+
+          <ul>
+            <li>Follow official timings and instructions.</li>
+            <li>Wear proper sports attire.</li>
+            <li>Bring your ID card on event day.</li>
+            <li>Respect participants and officials.</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer>
+
+      <div>
+        Privacy Policy &nbsp;&nbsp;
+        Terms of Service &nbsp;&nbsp;
+        Contact Support
+      </div>
+
+      <div>
+        © 2026 Sports Day Management System
+      </div>
+
+    </footer>
+
+  </main>
+
+</div>
+
+</body>
+</html>
