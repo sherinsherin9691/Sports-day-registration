@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sports Day Results</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+    }
+
+    body{
+      background:#f5f7fb;
+      color:#111827;
+      overflow-x:hidden;
+    }
+
+    .container{
+      display:flex;
+      min-height:100vh;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar{
+      width:250px;
+      background:#ffffff;
+      border-right:1px solid #e5e7eb;
+      padding:25px 20px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .logo h2{
+      color:#2563eb;
+      font-size:26px;
+      font-weight:700;
+    }
+
+    .logo p{
+      font-size:13px;
+      color:#6b7280;
+      margin-top:5px;
+    }
+
+    .menu{
+      margin-top:40px;
+    }
+
+    .menu a{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:#374151;
+      padding:14px 16px;
+      border-radius:12px;
+      margin-bottom:10px;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    .menu a:hover{
+      background:#eff6ff;
+      color:#2563eb;
+    }
+
+    .menu .active{
+      background:#2563eb;
+      color:white;
+    }
+
+    .bottom-menu{
+      margin-top:40px;
+    }
+
+    .bottom-menu a{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:#374151;
+      padding:14px 16px;
+      border-radius:12px;
+      margin-bottom:10px;
+      transition:0.3s;
+    }
+
+    .bottom-menu a:hover{
+      background:#eff6ff;
+      color:#2563eb;
+    }
+
+    /* MAIN */
+
+    .main{
+      flex:1;
+      padding:30px;
+    }
+
+    /* TOPBAR */
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:30px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#6b7280;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#2563eb;
+    }
+
+    .nav-links .active{
+      color:#2563eb;
+      border-bottom:2px solid #2563eb;
+      padding-bottom:5px;
+    }
+
+    .top-icons{
+      display:flex;
+      gap:20px;
+      font-size:18px;
+      color:#374151;
+      cursor:pointer;
+    }
+
+    /* HEADER */
+
+    .header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:25px;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .header-text h1{
+      font-size:38px;
+      margin-bottom:8px;
+    }
+
+    .header-text p{
+      color:#6b7280;
+      font-size:15px;
+    }
+
+    .results-header-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    /* BUTTONS */
+
+    .btn{
+      background:#2563eb;
+      color:white;
+      border:none;
+      padding:14px 24px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#1e4fd8;
+    }
+
+    .pill{
+      background:white;
+      border:1px solid #e5e7eb;
+      padding:12px 16px;
+      border-radius:12px;
+      font-weight:600;
+      color:#374151;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .pill:hover{
+      background:#eff6ff;
+      color:#2563eb;
+      border-color:#dbeafe;
+    }
+
+    /* STATS */
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      margin-bottom:35px;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:18px;
+      border:1px solid #e5e7eb;
+      box-shadow:0 5px 15px rgba(0,0,0,0.03);
+    }
+
+    .card-top{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:15px;
+      font-size:22px;
+      color:#2563eb;
+    }
+
+    .card h2{
+      font-size:36px;
+      margin-bottom:8px;
+    }
+
+    .card p{
+      color:#6b7280;
+    }
+
+    /* RESULTS GRID */
+
+    .results-grid{
+      display:grid;
+      grid-template-columns:1.3fr 1fr;
+      gap:20px;
+      margin-bottom:35px;
+    }
+
+    .panel{
+      background:white;
+      border:1px solid #e5e7eb;
+      border-radius:18px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.03);
+      padding:20px;
+    }
+
+    .panel h3{
+      font-size:20px;
+      margin-bottom:18px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#111827;
+    }
+
+    /* TABLE */
+
+    .table-like{
+      width:100%;
+      border:1px solid #e5e7eb;
+      border-radius:14px;
+      overflow:hidden;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:60px 1fr 140px 100px;
+      gap:12px;
+      padding:14px;
+      align-items:center;
+    }
+
+    .thead{
+      background:#eff6ff;
+      color:#2563eb;
+      font-weight:700;
+    }
+
+    .tbody .row{
+      border-top:1px solid #f1f5f9;
+    }
+
+    .rank{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      background:#2563eb;
+    }
+
+    .gold{
+      background:#f59e0b;
+    }
+
+    .silver{
+      background:#94a3b8;
+    }
+
+    .bronze{
+      background:#d97706;
+    }
+
+    .team-badge{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .team-dot{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      background:#eff6ff;
+      border:1px solid #dbeafe;
+      color:#2563eb;
+      font-weight:700;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .muted{
+      color:#6b7280;
+      font-size:13px;
+    }
+
+    /* LOWER SECTION */
+
+    .section-split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-bottom:30px;
+    }
+
+    .events-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+    }
+
+    .event-card{
+      background:#ffffff;
+      border:1px solid #e5e7eb;
+      border-radius:16px;
+      transition:0.3s;
+    }
+
+    .event-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 20px rgba(0,0,0,0.06);
+    }
+
+    .event-inner{
+      padding:18px;
+    }
+
+    .event-title{
+      font-size:18px;
+      font-weight:700;
+      margin:8px 0;
+    }
+
+    .event-score{
+      margin-top:12px;
+      font-weight:800;
+      color:#2563eb;
+      font-size:18px;
+    }
+
+    /* FOOTER BUTTONS */
+
+    .footer-actions{
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1000px){
+
+      .sidebar{
+        display:none;
+      }
+
+      .main{
+        padding:20px;
+      }
+
+      .results-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-split{
+        grid-template-columns:1fr;
+      }
+
+      .row{
+        grid-template-columns:50px 1fr 110px 80px;
+        font-size:13px;
+      }
+
+    }
+
+    @media(max-width:700px){
+
+      .header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+      }
+
+      .nav-links{
+        gap:18px;
+        flex-wrap:wrap;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <div>
+
+        <div class="logo">
+          <h2>Sports Day '26</h2>
+          <p>Department Central</p>
+        </div>
+
+        <div class="menu">
+          <a href="index.html">
+            <i class="fa-solid fa-table-columns"></i>
+            Dashboard
+          </a>
+
+          <a href="new_registration.html">
+            <i class="fa-solid fa-file-circle-plus"></i>
+            New Registration
+          </a>
+
+          <a href="participants.html">
+            <i class="fa-solid fa-users"></i>
+            Participants
+          </a>
+
+          <a href="result.html" class="active">
+            <i class="fa-solid fa-trophy"></i>
+            Results
+          </a>
+
+          <a href="profile.html">
+            <i class="fa-solid fa-gear"></i>
+            Profile
+          </a>
+        </div>
+
+      </div>
+
+      <div class="bottom-menu">
+
+        <a href="#">
+          <i class="fa-regular fa-circle-question"></i>
+          Help Center
+        </a>
+
+        <a href="#">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </a>
+
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+      <!-- TOPBAR -->
+
+      <div class="topbar">
+
+        <div class="nav-links">
+          <a href="#">Dashboard</a>
+          <a href="landing.html#events">Events</a>
+          <a href="#" class="active">Results</a>
+        </div>
+
+        <div class="top-icons">
+          <i class="fa-regular fa-bell"></i>
+          <i class="fa-regular fa-user"></i>
+        </div>
+
+      </div>
+
+      <!-- HEADER -->
+
+      <div class="header">
+
+        <div class="header-text">
+          <h1>Results Dashboard</h1>
+          <p>Track solo and team winners across all sports events.</p>
+        </div>
+
+        <div class="results-header-actions">
+
+          <button class="pill">
+            <i class="fa-solid fa-building-columns"></i>
+            Department
+          </button>
+
+          <button class="pill">
+            <i class="fa-solid fa-layer-group"></i>
+            Event Type
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- STATS -->
+
+      <div class="stats">
+
+        <div class="card">
+          <div class="card-top">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h2>24</h2>
+          <p>Events Completed</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <i class="fa-solid fa-medal"></i>
+          </div>
+          <h2>72</h2>
+          <p>Medal Winners</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h2>18</h2>
+          <p>Departments Scored</p>
+        </div>
+
+      </div>
+
+      <!-- RESULTS GRID -->
+
+      <div class="results-grid">
+
+        <!-- SOLO -->
+
+        <div class="panel">
+
+          <h3>
+            <i class="fa-solid fa-user" style="color:#2563eb;"></i>
+            Solo Event Leaderboard
+          </h3>
+
+          <div class="table-like">
+
+            <div class="row thead">
+              <div>Rank</div>
+              <div>Competitor</div>
+              <div>Event</div>
+              <div>Score</div>
+            </div>
+
+            <div class="tbody">
+
+              <div class="row">
+                <div class="rank gold">1</div>
+
+                <div class="team-badge">
+                  <div class="team-dot">S</div>
+
+                  <div>
+                    <div style="font-weight:700;">Sanjay Kumar</div>
+                    <div class="muted">Department A</div>
+                  </div>
+                </div>
+
+                <div>100m Dash</div>
+                <div style="font-weight:700;">10.48</div>
+              </div>
+
+              <div class="row">
+                <div class="rank silver">2</div>
+
+                <div class="team-badge">
+                  <div class="team-dot">T</div>
+
+                  <div>
+                    <div style="font-weight:700;">Tanya Shah</div>
+                    <div class="muted">Department B</div>
+                  </div>
+                </div>
+
+                <div>200m Dash</div>
+                <div style="font-weight:700;">23.21</div>
+              </div>
+
+              <div class="row">
+                <div class="rank bronze">3</div>
+
+                <div class="team-badge">
+                  <div class="team-dot">R</div>
+
+                  <div>
+                    <div style="font-weight:700;">Rahul Verma</div>
+                    <div class="muted">Department C</div>
+                  </div>
+                </div>
+
+                <div>Long Jump</div>
+                <div style="font-weight:700;">6.42m</div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+
+            <button class="btn">
+              View All Solo Results
+            </button>
+
+            <button class="pill">
+              <i class="fa-solid fa-list-ol"></i>
+              Event-wise
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- TEAM -->
+
+        <div class="panel">
+
+          <h3>
+            <i class="fa-solid fa-people-group" style="color:#2563eb;"></i>
+            Team Event Top 3
+          </h3>
+
+          <div class="table-like">
+
+            <div class="row thead">
+              <div>Rank</div>
+              <div>Team</div>
+              <div>Event</div>
+              <div>Points</div>
+            </div>
+
+            <div class="tbody">
+
+              <div class="row">
+                <div class="rank gold">1</div>
+
+                <div class="team-badge">
+                  <div class="team-dot">A</div>
+
+                  <div>
+                    <div style="font-weight:700;">Dept A Lions</div>
+                    <div class="muted">Basketball</div>
+                  </div>
+                </div>
+
+                <div>Basketball</div>
+                <div style="font-weight:700;">96</div>
+              </div>
+
+              <div class="row">
+                <div class="rank silver">2</div>
+
+                <div class="team-badge">
+                  <div class="team-dot">B</div>
+
+                  <div>
+                    <div style="font-weight:700;">Dept B Strikers</div>
+                    <div class="muted">Football</div>
+                  </div>
+                </div>
+
+                <div>Football</div>
+                <div style="font-weight:700;">88</div>
+              </div>
+
+              <div class="row">
+                <div class="rank bronze">3</div>
+
+                <div class="team-badge">
+                  <div class="team-dot">C</div>
+
+                  <div>
+                    <div style="font-weight:700;">Dept C Chargers</div>
+                    <div class="muted">Relay</div>
+                  </div>
+                </div>
+
+                <div>4x100 Relay</div>
+                <div style="font-weight:700;">82</div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div style="margin-top:18px;">
+            <button class="btn" style="width:100%;">
+              View All Team Results
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- LOWER SECTION -->
+
+      <div class="section-split">
+
+        <!-- QUICK WINNERS -->
+
+        <div class="panel">
+
+          <h3>
+            <i class="fa-solid fa-square-poll-vertical" style="color:#2563eb;"></i>
+            Quick Event Winners
+          </h3>
+
+          <div class="events-grid">
+
+            <div class="event-card">
+              <div class="event-inner">
+
+                <div class="muted">
+                  <i class="fa-regular fa-calendar"></i>
+                  Oct 24
+                </div>
+
+                <div class="event-title">
+                  100m Dash
+                </div>
+
+                <div class="muted">
+                  Winner: Sanjay Kumar
+                </div>
+
+                <div class="event-score">
+                  10.48s
+                </div>
+
+              </div>
+            </div>
+
+            <div class="event-card">
+              <div class="event-inner">
+
+                <div class="muted">
+                  <i class="fa-regular fa-calendar"></i>
+                  Oct 25
+                </div>
+
+                <div class="event-title">
+                  High Jump
+                </div>
+
+                <div class="muted">
+                  Winner: Meera Nair
+                </div>
+
+                <div class="event-score">
+                  1.72m
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- REPORTS -->
+
+        <div class="panel">
+
+          <h3>
+            <i class="fa-solid fa-file-export" style="color:#2563eb;"></i>
+            Export & Reports
+          </h3>
+
+          <p class="muted" style="line-height:1.7; margin-bottom:18px;">
+            Generate department-wise result sheets for printing or sharing.
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:12px;">
+
+            <button class="btn">
+              <i class="fa-solid fa-file-pdf"></i>
+              Download PDF
+            </button>
+
+            <button class="pill">
+              <i class="fa-solid fa-file-csv"></i>
+              Download CSV
+            </button>
+
+            <button class="pill">
+              <i class="fa-solid fa-share-nodes"></i>
+              Share Results
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+
+      <div class="footer-actions">
+
+        <button class="pill">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back to Dashboard
+        </button>
+
+        <button class="btn">
+          <i class="fa-solid fa-trophy"></i>
+          View Overall Winners
+        </button>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

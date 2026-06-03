@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Team Event Registration</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="team_reg.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div>
+
+      <div class="logo">
+        <h1>Sports Day '26</h1>
+        <p>Department Central Management Portal</p>
+      </div>
+
+      <div class="menu">
+        <a href="index.html">
+          <i class="fa-solid fa-table-columns"></i>
+          Dashboard
+        </a>
+        <a href="new_registration.html" class="active">
+          <i class="fa-solid fa-file-circle-plus"></i>
+          New Registration
+        </a>
+        <a href="participants.html">
+          <i class="fa-solid fa-users"></i>
+          Participants
+        </a>
+        <a href="result.html">
+          <i class="fa-solid fa-trophy"></i>
+          Results
+        </a>
+        <a href="profile.html">
+          <i class="fa-solid fa-gear"></i>
+          Profile
+        </a>
+      </div>
+
+    </div>
+
+    <div class="bottom-links">
+      <a href="#">Help Center</a>
+      <a href="#">Logout</a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+
+  <main class="main">
+
+    <div class="breadcrumb">
+      Events › Team Events › Cricket › Register
+    </div>
+
+    <h1 class="title">
+      Register for Cricket
+    </h1>
+
+    <p class="subtitle">
+      Fill in the details below to register your team.
+    </p>
+
+    <div class="layout">
+
+      <!-- LEFT SIDE -->
+
+      <div>
+
+        <!-- TEAM INFO -->
+
+        <div class="card">
+
+          <h2 class="section-title">
+            Team Information
+          </h2>
+
+          <div class="form-grid">
+
+            <div class="form-group full">
+              <label>Team Name *</label>
+              <input type="text" placeholder="Enter team name">
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- TEAM LEADER -->
+
+        <div class="card">
+
+          <h2 class="section-title">
+            Team Leader
+          </h2>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Full name">
+            </div>
+
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" placeholder="Email address">
+            </div>
+
+            <div class="form-group">
+              <label>Register Number *</label>
+              <input type="text" placeholder="Register number">
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="text" placeholder="Phone number">
+            </div>
+
+            <div class="form-group">
+              <label>Year *</label>
+              <select>
+                <option>Select year</option>
+                <option>UG 1st Year</option>
+                <option>UG 2nd Year</option>
+                <option>UG 3rd Year</option>
+                <option>PG 1st Year</option>
+                <option>PG 2nd Year</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Gender *</label>
+              <select>
+                <option>Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Others</option>
+              </select>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- OTHER PLAYERS -->
+
+        <div class="card">
+
+          <h2 class="section-title">
+            Other Players
+          </h2>
+
+          <div id="players-container">
+
+            <!-- PLAYER 2 -->
+
+            <div class="player-card">
+
+              <div class="player-header">
+
+                <div class="player-title">
+                  Player 2
+                </div>
+
+                <button
+                  class="delete-btn"
+                  onclick="deletePlayer(this)"
+                >
+                  Delete
+                </button>
+
+              </div>
+
+              <div class="form-grid">
+
+                <div class="form-group">
+                  <label>Name *</label>
+                  <input type="text" placeholder="Full name">
+                </div>
+
+                <div class="form-group">
+                  <label>Register No. *</label>
+                  <input type="text" placeholder="Register No">
+                </div>
+
+                <div class="form-group">
+                  <label>Phone *</label>
+                  <input type="text" placeholder="Phone number">
+                </div>
+
+                <div class="form-group">
+                  <label>Gender *</label>
+                  <select>
+                    <option>Select gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Year *</label>
+                  <select>
+                    <option>Select year</option>
+                    <option>UG 1st Year</option>
+                    <option>UG 2nd Year</option>
+                    <option>UG 3rd Year</option>
+                    <option>PG 1st Year</option>
+                    <option>PG 2nd Year</option>
+                  </select>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <button
+            class="btn btn-add"
+            onclick="addPlayer()"
+          >
+            + Add New Player
+          </button>
+
+        </div>
+
+        <!-- TERMS -->
+
+        <div class="card">
+
+          <div class="terms">
+
+            <input type="checkbox">
+
+            <p>
+              I confirm that all team members agree to participate and follow Sports Day rules.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+          <button class="btn btn-cancel">
+            Cancel
+          </button>
+
+          <button class="btn btn-register">
+            Register Team →
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE -->
+
+      <div>
+
+        <div class="event-card">
+
+          <img
+            class="event-image"
+            src="../src/assets/images/Cricket.jpg.jpeg"
+            alt="Cricket Tournament"
+          >
+
+          <div class="event-content">
+
+            <h2 class="event-title">
+              Cricket Tournament
+            </h2>
+
+            <p class="event-info">
+              Team Event
+            </p>
+
+            <p class="event-info">
+              📅 Oct 27, 2026
+            </p>
+
+            <p class="event-info">
+              ⏰ 07:00 AM – 07:00 PM
+            </p>
+
+            <p class="event-info">
+              📍 Cricket Ground
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="info-box">
+
+          <h3>Registration Tips</h3>
+
+          <ul>
+            <li>Ensure all player details are correct.</li>
+            <li>Minimum 11 players required.</li>
+            <li>Bring ID card on event day.</li>
+            <li>Team leader should report 30 minutes early.</li>
+          </ul>
+
+        </div>
+
+        <div class="info-box">
+
+          <h3>Event Rules</h3>
+
+          <ul>
+            <li>Follow referee instructions.</li>
+            <li>Maintain sportsmanship.</li>
+            <li>Late teams may be disqualified.</li>
+            <li>Use proper sports attire.</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer>
+
+      <div>
+        Privacy Policy &nbsp;&nbsp;
+        Terms of Service &nbsp;&nbsp;
+        Contact Support
+      </div>
+
+      <div>
+        © 2026 Sports Day Management System
+      </div>
+
+    </footer>
+
+  </main>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+  let playerCount = 2;
+
+  function addPlayer(){
+
+    playerCount++;
+
+    const container = document.getElementById("players-container");
+
+    const playerCard = document.createElement("div");
+
+    playerCard.className = "player-card";
+
+    playerCard.innerHTML = `
+
+      <div class="player-header">
+
+        <div class="player-title">
+          Player ${playerCount}
+        </div>
+
+        <button
+          class="delete-btn"
+          onclick="deletePlayer(this)"
+        >
+          Delete
+        </button>
+
+      </div>
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>Name *</label>
+          <input type="text" placeholder="Full name">
+        </div>
+
+        <div class="form-group">
+          <label>Register No. *</label>
+          <input type="text" placeholder="Register No">
+        </div>
+
+        <div class="form-group">
+          <label>Phone *</label>
+          <input type="text" placeholder="Phone number">
+        </div>
+
+        <div class="form-group">
+          <label>Gender *</label>
+          <select>
+            <option>Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Others</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Year *</label>
+          <select>
+            <option>Select year</option>
+            <option>UG 1st Year</option>
+            <option>UG 2nd Year</option>
+            <option>UG 3rd Year</option>
+            <option>PG 1st Year</option>
+            <option>PG 2nd Year</option>
+          </select>
+        </div>
+
+      </div>
+
+    `;
+
+    container.appendChild(playerCard);
+
+    updatePlayerNumbers();
+  }
+
+  function deletePlayer(button){
+
+    const playerCard = button.closest(".player-card");
+
+    playerCard.remove();
+
+    updatePlayerNumbers();
+  }
+
+  function updatePlayerNumbers(){
+
+    const players = document.querySelectorAll("#players-container .player-card");
+
+    players.forEach((player, index) => {
+
+      const title = player.querySelector(".player-title");
+
+      title.innerText = `Player ${index + 2}`;
+    });
+
+    playerCount = players.length + 1;
+  }
+
+</script>
+
+</body>
+</html>
+

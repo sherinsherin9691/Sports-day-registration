@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sports Day Registration</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="solo.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div>
+
+      <div class="logo">
+        <h1>Sports Day '26</h1>
+        <p>Department Central Management Portal</p>
+      </div>
+
+      <div class="menu">
+        <a href="index.html">
+          <i class="fa-solid fa-table-columns"></i>
+          Dashboard
+        </a>
+        <a href="new_registration.html" class="active">
+          <i class="fa-solid fa-file-circle-plus"></i>
+          New Registration
+        </a>
+        <a href="participants.html">
+          <i class="fa-solid fa-users"></i>
+          Participants
+        </a>
+        <a href="result.html">
+          <i class="fa-solid fa-trophy"></i>
+          Results
+        </a>
+        <a href="profile.html">
+          <i class="fa-solid fa-gear"></i>
+          Profile
+        </a>
+      </div>
+
+    </div>
+
+    <div class="bottom-links">
+      <a href="#">Help Center</a>
+      <a href="#">Logout</a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+
+  <main class="main">
+
+    <div class="breadcrumb">
+      Events › Solo Events › 100m Sprint › Register
+    </div>
+
+    <h1 class="page-title">Register for 100m Sprint</h1>
+
+    <p class="page-subtitle">
+      Fill in the details below to register for this individual event.
+    </p>
+
+    <div class="layout">
+
+      <!-- LEFT FORM -->
+
+      <div>
+
+        <!-- PERSONAL INFO -->
+
+        <div class="card">
+
+          <h2 class="section-title">Personal Information</h2>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Enter full name">
+            </div>
+
+            <div class="form-group">
+              <label>Register Number *</label>
+              <input type="text" placeholder="Enter register number">
+            </div>
+
+            <div class="form-group">
+              <label>Year / Category *</label>
+              <select>
+                <option>UG 1st Year</option>
+                <option>UG 2nd Year</option>
+                <option>UG 3rd Year</option>
+                <option>PG 1st Year</option>
+                <option>PG 2nd Year</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Date of Birth *</label>
+              <input type="date">
+            </div>
+
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" placeholder="Enter email address">
+            </div>
+
+            <div class="form-group">
+              <label>Gender *</label>
+              <select>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Others</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="text" placeholder="Enter phone number">
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- EMERGENCY -->
+
+        <div class="card">
+
+          <h2 class="section-title">Emergency Contact</h2>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Contact Name *</label>
+              <input type="text" placeholder="Enter contact name">
+            </div>
+
+            <div class="form-group">
+              <label>Relationship *</label>
+              <input type="text" placeholder="Parent, Guardian, Friend">
+            </div>
+
+            <div class="form-group">
+              <label>Contact Number *</label>
+              <input type="text" placeholder="Enter contact number">
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- EVENT INFO -->
+
+        <div class="card">
+
+          <h2 class="section-title">Event Specific Information</h2>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label>Personal Best</label>
+              <input type="text" placeholder="e.g. 11.20 seconds">
+            </div>
+
+            <div class="form-group">
+              <label>Heat Preference</label>
+              <select>
+                <option>Morning</option>
+                <option>Afternoon</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label>Additional Notes</label>
+              <textarea placeholder="Any medical conditions or additional information..."></textarea>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- TERMS -->
+
+        <div class="card">
+
+          <div class="terms">
+            <input type="checkbox">
+
+            <p>
+              I hereby confirm that I am physically fit to participate in this event.
+              I agree to abide by the rules and regulations of Sports Day '26.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+          <button class="btn btn-cancel">
+            Cancel
+          </button>
+
+          <button class="btn btn-next">
+            Next →
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT PANEL -->
+
+      <div>
+
+        <div class="event-card">
+
+          <img
+            class="event-image"
+            src="../src/assets/images/100m_Sprint.jpg.jpeg"
+            alt="100m Sprint"
+          >
+
+          <div class="event-content">
+
+            <h2 class="event-title">100m Sprint</h2>
+
+            <p class="event-info">Individual Track Event</p>
+
+            <p class="event-info">📅 Oct 24, 2026</p>
+
+            <p class="event-info">⏰ 09:00 AM – 11:00 AM</p>
+
+            <p class="event-info">📍 Main Athletics Track</p>
+
+          </div>
+
+        </div>
+
+        <div class="info-box">
+
+          <h3>Registration Tips</h3>
+
+          <ul>
+            <li>Ensure all required fields are filled correctly.</li>
+            <li>You can only register for events within your department.</li>
+            <li>Contact support if you face any issues during registration.</li>
+          </ul>
+
+        </div>
+
+        <div class="info-box">
+
+          <h3>Event Rules</h3>
+
+          <ul>
+            <li>Follow official timings and instructions.</li>
+            <li>Wear proper sports attire.</li>
+            <li>Bring your ID card on event day.</li>
+            <li>Respect participants and officials.</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <footer>
+
+      <div>
+        Privacy Policy &nbsp;&nbsp;
+        Terms of Service &nbsp;&nbsp;
+        Contact Support
+      </div>
+
+      <div>
+        © 2026 Sports Day Management System
+      </div>
+
+    </footer>
+
+  </main>
+
+</div>
+
+</body>
+</html>
