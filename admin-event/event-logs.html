@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Logs</title>
+
+<link rel="stylesheet" href="eventlogstyle.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+
+  <div class="sidebar">
+     
+    <aside>
+        <ul class="menu">
+          <h2>Sports Day'26</h2>
+          <h4>Managing Athletics'26</h4>
+          <li><a href="/admin/dashboard.html" >Dashboard</a></li>
+          <li><a href="/admin/deptcenter.html">Department Center</a></li>
+          <li><a href="/admin/staffcontrol.html" >Staff Control</a></li>
+          <li><a href="/admin-event/event-control.html">Event Control</a></li>
+          <li><a href="/admin-event/event-logs.html" class="active">Event Logs</a></li>
+        </ul>
+
+        <div class="bottom-menu">
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+
+    </aside>
+
+  </div>
+
+  <!-- Main -->
+
+  <div class="main">
+    <!-- EVENT LOGS PAGE -->
+
+    <div id="logsPage" class="section">
+
+      <h1>Event Activity Logs</h1>
+
+      <div class="table-box">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Activity</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody id="logsTable">
+
+            <tr>
+              <td>Football Finals</td>
+              <td>Event Created</td>
+              <td>20-06-2026</td>
+              <td>09:00 AM</td>
+              <td>
+                <span class="log-active">
+                  Active
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Long Jump</td>
+              <td>Venue Updated</td>
+              <td>21-06-2026</td>
+              <td>10:30 AM</td>
+              <td>
+                <span class="log-update">
+                  Updated
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>100M Sprint</td>
+              <td>Event Completed</td>
+              <td>22-06-2026</td>
+              <td>01:15 PM</td>
+              <td>
+                <span class="log-cancel">
+                  Completed
+                </span>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

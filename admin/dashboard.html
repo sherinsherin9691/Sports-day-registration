@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+
+  <div class="container">
+   <!-- ----------------------Sidebar---------------------------- --> 
+    <div class="sidebar">
+     
+      <aside>
+        <ul class="menu">
+          <h2>Sports Day'26</h2>
+          <h4>Managing Athletics'26</h4>
+          <li><a href="dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="deptcenter.html">Department Center</a></li>
+          <li><a href="staffcontrol.html">Staff Control</a></li>
+          <li><a href="/admin-event/event-control.html">Event Control</a></li>
+          <li><a href="/admin-event/eventlogs.html">Event Logs</a></li>
+        </ul>
+
+        <div class="bottom-menu">
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- -----------------------Main Content---------------------------- -->
+    <div class="main-content">
+      
+      <div class="top-bar">
+        <div class="title-group">
+          <h2>Welcome,Admin!</h2>
+          <p>Here you can manage all aspects of Sports Day '26, including events, departments, staff and results.</p>
+        </div>
+        
+        <div class="quickbtn">
+          <a href="/admin-event/event-control.html" class="btn">Add Event</a>
+          <a href="deptcenter.html" class="btn">Add Department</a> 
+          <a href="staffcontrol.html" class="btn">Add Staff</a>
+        </div>
+
+      </div>
+
+      <!-- ------------------cards----------------- -->
+      <div class="cards">
+        <div class="card">
+          <h3>1500</h3>
+          <p>Total Registrations</p>
+        </div>
+
+        <div class="card">
+          <h3>25</h3>
+          <p>Total Events</p>
+        </div>
+
+        <div class="card">
+          <h3>450</h3>
+          <p>Total Students</p>
+        </div>
+
+        <div class="card">
+          <h3>10</h3>
+          <p>Completed Events</p>
+        </div>
+      </div>
+
+      <!-- ---------------------Chart------------------- -->
+      <div class="chart-container">
+        <div class="chart">
+          <h3>Event Status Overview</h3>
+          <div class="circle-chart">
+
+            <div class="inner-circle">
+              <h1>35</h1>
+              <p>Total</p>
+            </div>
+
+          </div>
+
+          <div class="status-list">
+
+            <div class="status">
+              <span class="dot dark"></span>
+              <p class="state" >Upcoming</p>
+              <span>15</span>
+            </div>
+
+            <div class="status">
+              <span class="dot medium"></span>
+              <p class="state" >Ongoing</p>
+              <span>12</span>
+            </div>
+
+            <div class="status">
+              <span class="dot light"></span>
+              <p class="state" >Completed</p>
+              <span>08</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="chart-bar">
+          <h3>Department Scores</h3>
+          
+          <div class="score-box">
+
+            <div class="score-title">
+              <span>Computer Science</span>
+              <span>22</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+
+          </div>
+
+          <div class="score-box">
+
+            <div class="score-title">
+              <span>Bontony</span>
+              <span>20</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+
+          </div>
+
+          <div class="score-box">
+
+            <div class="score-title">
+              <span>IT</span>
+              <span>18</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+
+          </div>
+
+          <div class="score-box">
+
+            <div class="score-title">
+              <span>Bcom</span>
+              <span>16</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+
+          </div>
+
+          <div class="score-box">
+
+            <div class="score-title">
+              <span>English</span>
+              <span>16</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- -------------------------Table-------------------------- -->
+      <div class="table-box">
+
+        <div class="table-header">
+
+          <h2>Recent Updates</h2>
+          <a href="#">View All</a>
+
+        </div>
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>EVENT</th>
+              <th>CATEGORY</th>
+              <th>COORDINATOR</th>
+              <th>STATUS</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>100m Sprint</td>
+              <td>Solo</td>
+              <td>Dr.John Kennady</td>
+              <td class="pending">Pending</td>
+            </tr>
+
+            <tr>
+              <td>Football</td>
+              <td>Team</td>
+              <td>S. Bharath</td>
+              <td class="completed">Completed</td>
+            </tr>
+
+            <tr>
+              <td>Long jump</td>
+              <td>Solo</td>
+              <td>Dr. Antony</td>
+              <td class="completed">Completed</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</body>
+</html>
