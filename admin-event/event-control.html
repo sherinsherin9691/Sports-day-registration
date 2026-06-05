@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports Event Dashboard</title>
+
+<link rel="stylesheet" href="eventstyle.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+
+  <div class="sidebar">
+     
+      <aside>
+        <ul class="menu">
+          <h2>Sports Day'26</h2>
+          <h4>Managing Athletics'26</h4>
+          <li><a href="/admin/dashboard.html" >Dashboard</a></li>
+          <li><a href="/admin/deptcenter.html">Department Center</a></li>
+          <li><a href="/admin/staffcontrol.html" >Staff Control</a></li>
+          <li><a href="/admin-event/event-control.html" class="active">Event Control</a></li>
+          <li><a href="/admin-event/eventlogs.html">Event Logs</a></li>
+        </ul>
+
+        <div class="bottom-menu">
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+
+  <!-- Main -->
+
+  <div class="main">
+
+    <!-- EVENT MANAGEMENT PAGE -->
+
+    <div id="eventPage" class="section active">
+
+      <h1>Event Management</h1>
+
+      <!-- Cards -->
+
+      <div class="cards">
+
+        <div class="card">
+          <h2 id="totalEvents">3</h2>
+          <p>Total Events</p>
+        </div>
+
+        <div class="card">
+          <h2>2</h2>
+          <p>Active Events</p>
+        </div>
+
+        <div class="card">
+          <h2>1</h2>
+          <p>Completed Events</p>
+        </div>
+
+      </div>
+
+      <!-- Form -->
+
+     <div class="form-section">
+
+    <!-- LEFT SIDE -->
+
+    <div class="form-box">
+
+      <h2>Create New Event</h2>
+      <br>
+
+      <form id="eventForm">
+
+        <select id="eventName" required>
+          <option value="">Select Event Name</option>
+          <option>Football</option>
+          <option>Basketball</option>
+          <option>Volleyball</option>
+          <option>Marathon</option>
+          <option>Long Jump</option>
+          <option>100M Sprint</option>
+        </select>
+
+        <input type="text" id="eventId" placeholder="Event ID" required>
+
+        <input type="date" id="eventDate" required>
+
+        <input type="text" id="venue" placeholder="Venue" required>
+
+        <select id="status">
+          <option>Active</option>
+          <option>Pending</option>
+          <option>Completed</option>
+        </select>
+
+        <div></div>
+
+        <button class="create-btn" type="submit">
+          Create Event
+        </button>
+
+      </form>
+
+      <!-- Registered Events -->
+
+      <div class="table-box">
+
+        <h2>Registered Events</h2>
+        <br>
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Event Name</th>
+              <th>Event ID</th>
+              <th>Date</th>
+              <th>Venue</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody id="eventTable">
+
+            <tr>
+              <td>Football Finals</td>
+              <td>EV201</td>
+              <td>2026-07-12</td>
+              <td>Main Stadium</td>
+              <td>Active</td>
+            </tr>
+
+            <tr>
+              <td>Long Jump</td>
+              <td>EV202</td>
+              <td>2026-07-14</td>
+              <td>Track Arena</td>
+              <td>Pending</td>
+            </tr>
+
+            <tr>
+              <td>100M Sprint</td>
+              <td>EV203</td>
+              <td>2026-07-16</td>
+              <td>Running Track</td>
+              <td>Completed</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="preview">
+
+      <h3>Event Preview</h3>
+
+      <p><strong>Name:</strong> <span id="pName">100M Sprint</span></p>
+      <br>
+
+      <p><strong>ID:</strong> <span id="pId">EV101</span></p>
+      <br>
+
+      <p><strong>Date:</strong> <span id="pDate">2026-06-20</span></p>
+      <br>
+
+      <p><strong>Venue:</strong> <span id="pVenue">Main Ground</span></p>
+
+      <div class="status" id="pStatus">
+        Active
+      </div>
+
+    </div>
+  </div>
+</div>
+  
+
+<script>
+
+/* Navigation */
+
+
+
+/* Form */
+
+const form = document.getElementById("eventForm");
+
+let total = 3;
+
+form.addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  const name = document.getElementById("eventName").value;
+  const id = document.getElementById("eventId").value;
+  const date = document.getElementById("eventDate").value;
+  const venue = document.getElementById("venue").value;
+  const status = document.getElementById("status").value;
+
+  // Preview
+
+  document.getElementById("pName").innerText = name;
+  document.getElementById("pId").innerText = id;
+  document.getElementById("pDate").innerText = date;
+  document.getElementById("pVenue").innerText = venue;
+  document.getElementById("pStatus").innerText = status;
+
+  // Event Table
+
+  const row = `
+    <tr>
+      <td>${name}</td>
+      <td>${id}</td>
+      <td>${date}</td>
+      <td>${venue}</td>
+      <td>${status}</td>
+    </tr>
+  `;
+
+  document.getElementById("eventTable").innerHTML += row;
+
+  // Logs Table
+
+  // const today = new Date();
+
+  // const logRow = `
+  //   <tr>
+  //     <td>${name}</td>
+  //     <td>New Event Added</td>
+  //     <td>${today.toLocaleDateString()}</td>
+  //     <td>${today.toLocaleTimeString()}</td>
+  //     <td>
+  //       <span class="log-active">
+  //         ${status}
+  //       </span>
+  //     </td>
+  //   </tr>
+  // `;
+
+  // document.getElementById("logsTable").innerHTML += logRow;
+
+  // Update Total Events
+
+  total++;
+
+  document.getElementById("totalEvents").innerText = total;
+
+  form.reset();
+
+});
+
+</script>
+
+</body>
+</html>
