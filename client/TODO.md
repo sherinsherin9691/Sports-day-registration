@@ -5,4 +5,3 @@
 - [x] Fixed invalid `<style>`/`<body>` structure in `client/result.html` (was likely broken causing styling/layout issues).
 - [ ] Ensure `client/result.html` loads Font Awesome correctly (add missing Font Awesome <link> back if needed).
 - [ ] Visually verify alignment in browser and adjust any remaining spacing/grid issues.
-
