@@ -6,6 +6,7 @@
     <title>Admin Dashboard</title>
 
     <link rel="stylesheet" href="staffstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 <body>
@@ -50,23 +51,23 @@
       <!-- ------------------cards----------------- -->
       <div class="cards">
         <div class="card">
-          <h3>23</h3>
-          <p>Total Manager</p>
+            <h3 id="totalManagers">0</h3>
+            <p>Total Managers</p>
         </div>
 
         <div class="card">
-          <h3>25</h3>
-          <p>Total Events</p>
+            <h3 id="staffEvents">0</h3>
+            <p>Total Events</p>
         </div>
 
         <div class="card">
-          <h3>450</h3>
-          <p>Total Students</p>
+            <h3 id="staffStudents">0</h3>
+            <p>Total Students</p>
         </div>
 
         <div class="card">
-          <h3>10</h3>
-          <p>Completed Events</p>
+            <h3 id="staffCompletedEvents">0</h3>
+            <p>Completed Events</p>
         </div>
       </div>
 
@@ -75,32 +76,32 @@
 
         <div class="new-staff">
             <h3>Event Manager Registration</h3>
-            <form>
+            <form id="staffForm">
                 <div class="staff-reg">
                     
                     <div class="form-grp">
                         <label for="name">Department</label>
-                        <input type="name" placeholder="Enter your Department">
+                        <input type="text" id="department" placeholder="Enter Department">
                     </div>
                     
                     <div class="form-grp">
                         <label for="name">Full Name</label>
-                        <input type="name" placeholder="Enter your Name">
+                        <input type="text" id="staffName" placeholder="Enter Name">
                     </div>
                     
                     <div class="form-grp">
                         <label for="email">Staff ID</label>
-                        <input type="text" placeholder="Enter your ID">
+                        <input type="text" id="staffId" placeholder="Enter ID">
                     </div>
                     
                     <div class="form-grp">
                         <label for="phone">Contact</label>
-                        <input type="tel" placeholder="Enter your Contact">
+                        <input type="tel" id="contact" placeholder="Enter Contact">
                     </div>
                     
                     <div class="form-grp">
                         <label>Shift</label>
-                        <select>
+                        <select id="shift">
                             <option>Select Shift</option>
                             <option>Shift-I</option>
                             <option>Shift-II</option>
@@ -109,16 +110,12 @@
                     
                     <div class="form-grp">
                         <label>In-Charge</In-Charge></label>
-                        <select>
+                        <select id="eventAssigned">
                             <option>Select Event</option>
-                            <option>Foot Ball</option>
-                            <option>Volley Ball</option>
-                            <option>Basket Ball</option>
-                            <option>100m Sprint</option>
                         </select>
                     </div>
 
-                      <button type="reset" class="reset-btn">Reset</button>
+                      <button type="reset" id="resetBtn" class="reset-btn">Reset</button>
                       <button type="submit" class="submit-btn">Add Staff</button>
 
                 </div>
@@ -131,7 +128,7 @@
 
           <div class="pre-box">
 
-            <div class="circle-logo">ED</div>
+            <div class="circle-logo" id="previewLogo"> </div>
 
             <div class="staff-name">
 
@@ -142,37 +139,36 @@
 
               <div class="detail-card">
 
-                <p><strong>Staff Name :</strong><span>Dr. Johnson</span></p>
+                <p><strong>Staff Name :</strong><span id="previewStaffName"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Contact :</strong><span>95432 45687</span></p>
+                <p><strong>Contact :</strong><span id="previewContact"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Shift :</strong><span>Shift-I</span></p>
+                <p><strong>Shift :</strong><span id="previewShift"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Events :</strong><span>Foot Ball</span></p>
+                <p><strong>Events :</strong><span id="previewEvent"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Manager ID :</strong><span>26SD101</span></p>
+                <p><strong>Manager ID :</strong><span id="previewManagerId"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Password :</strong><span>SE23D7T</span></p>
+                <p><strong>Password :</strong><span id="previewPassword"> </span></p>
 
               </div>
 
             </div>
-            <button class="edit-btn">Edit</button>
 
           </div>
 
@@ -186,7 +182,7 @@
         <div class="table-header">
 
           <h2>Existing Event Managers</h2>
-          <input type="search" placeholder="Search.........">
+          <input type="search" id="searchStaff" placeholder="Search Staff">
 
         </div>
 
@@ -199,34 +195,12 @@
               <th>Name</th>
               <th>Manager ID</th>
               <th>Contact</th>
+              <th>Actions</th>
             </tr>
 
           </thead>
 
-          <tbody>
-
-            <tr>
-              <td>25IT6UG</td>
-              <td>Dr.John Kennady</td>
-              <td>25BC67T</td>
-              <td>98787 98766</td>
-            </tr>
-
-            <tr>
-              <td>25BC67T</td>
-              <td>S. Bharath</td>
-              <td>25CS768U</td>
-              <td>94448 49752</td>
-            </tr>
-
-            <tr>
-              <td>25CS768U</td>
-              <td>Dr. Antony</td>
-              <td>25IT6UG</td>
-              <td>78845 24682</td>
-            </tr>
-
-          </tbody>
+          <tbody id="staffTable"></tbody>
 
         </table>
 
@@ -236,6 +210,8 @@
     </div>
 
   </div>
+
+  <script src="staff.js"></script>
 
 </body>
 </html>

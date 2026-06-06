@@ -6,6 +6,8 @@
 <title>Sports Event Dashboard</title>
 
 <link rel="stylesheet" href="eventstyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
@@ -46,26 +48,37 @@
 
     <div id="eventPage" class="section active">
 
-      <h1>Event Management</h1>
+      <div class="top-bar">
+        <div class="title-group">
+          <h2>Event Control</h2>
+          <p>Here you can manage all the events including adding, editing, and removing events.</p>
+        </div>
+        
+      </div>
 
       <!-- Cards -->
 
       <div class="cards">
 
-        <div class="card">
-          <h2 id="totalEvents">3</h2>
-          <p>Total Events</p>
-        </div>
+            <div class="card">
+                <h2 id="totalEvents">0</h2>
+                <p>Total Events</p>
+            </div>
 
-        <div class="card">
-          <h2>2</h2>
-          <p>Active Events</p>
-        </div>
+            <div class="card">
+                <h2 id="activeEvents">0</h2>
+                <p>Active Events</p>
+            </div>
 
-        <div class="card">
-          <h2>1</h2>
-          <p>Completed Events</p>
-        </div>
+            <div class="card">
+                <h2 id="completedEvents">0</h2>
+                <p>Completed Events</p>
+            </div>
+
+            <div class="card">
+                <h2 id="totalManagers">0</h2>
+                <p>Total Event Managers</p>
+            </div>
 
       </div>
 
@@ -77,42 +90,149 @@
 
     <div class="form-box">
 
-      <h2>Create New Event</h2>
-      <br>
+      <div class="event-new">
 
-      <form id="eventForm">
+        <h2>Create New Event</h2>
+        <br>
 
-        <select id="eventName" required>
-          <option value="">Select Event Name</option>
-          <option>Football</option>
-          <option>Basketball</option>
-          <option>Volleyball</option>
-          <option>Marathon</option>
-          <option>Long Jump</option>
-          <option>100M Sprint</option>
-        </select>
+        <form id="eventForm">
 
-        <input type="text" id="eventId" placeholder="Event ID" required>
+        <div class="event-reg">
+                    
+            <div class="form-grp">
+              <label for="eventName">Event Name</label>
+              <input type="text" id="eventName" placeholder="Event Name">
+            </div>
+                    
+            <div class="form-grp">
+              <label for="category">Category</label>
+              <select id="category">
+                <option value="">Select Category</option>
+                <option value="Solo">Solo</option>
+                <option value="Team">Team</option>
+              </select>
+            </div>
+                    
+            <div class="form-grp">
+              <label for="teamLimit">Team Limit</label>
+              <input type="number" id="teamLimit" placeholder="Team Limit" style="display:none;">
+            </div>
 
-        <input type="date" id="eventDate" required>
+            <div class="form-grp">
+              <label for="eventAssigned">In-Charge</label>
+                <select id="eventManager">
+                  <option value="">Select Manager</option>
+                </select>
+            </div>
+                    
+            <div class="form-grp">
+              <label for="venue">Venue</label>
+              <input type="text" id="venue">
+            </div>
+                    
+            <div class="form-grp">
+              <label for="time">Time</label>
+              <input type="time" id="eventTime">
+            </div>
+                    
+            <div class="form-grp">
+              <label for="date">Date</label>
+              <input type="date" id="eventDate">
+            </div>
 
-        <input type="text" id="venue" placeholder="Venue" required>
+            <div class="form-grp">
+              <label>Event Image</label>
+              <input type="file" id="eventImage" accept="image/*">
+            </div>
 
-        <select id="status">
-          <option>Active</option>
-          <option>Pending</option>
-          <option>Completed</option>
-        </select>
+            <div class="form-grp">
+              <label>Event Status</label>
+                <select id="status">
+                  <option value="Pending">Pending</option>
+                  <option value="Completed">Completed</option>
+                </select>
+            </div>
 
-        <div></div>
+        </div>
 
-        <button class="create-btn" type="submit">
-          Create Event
-        </button>
+        <button type="reset" id="resetBtn" class="reset-btn">Reset</button>
+        <button type="submit" class="submit-btn">Add Event</button>
 
-      </form>
+        </form>
 
-      <!-- Registered Events -->
+      </div>
+      
+      <div class="preview">
+
+        <h3>Event Preview</h3>
+
+        <div class="pre-box">
+          <img id="previewImage" src="https://via.placeholder.com/250x150" alt="Event Image" class="preview-img">
+        </div>
+
+        <div class="preview-details">
+
+          <p><strong>Event Name:</strong><span id="previewName">---</span></p>
+
+          <p><strong>Event ID:</strong><span id="previewId">---</span></p>
+
+          <p><strong>In Charge:</strong><span id="previewStaff">---</span></p>
+
+          <p><strong>Date:</strong><span id="previewDate">---</span></p>
+
+          <p><strong>Venue:</strong><span id="previewVenue">---</span></p>
+
+        </div>
+
+      </div>      
+
+    </div>
+    
+    <!-- ------------------------EVENT SETTINGS & REGISTERED EVENTS------------------------ -->
+
+    <div class="event-settings">
+
+      <h2>Event Rules & Points</h2>
+
+        <div class="settings-grid">
+
+            <div class="form-grp">
+                <label>1st Place Points</label>
+                <input type="number" id="firstPoint" value="10">
+            </div>
+
+            <div class="form-grp">
+                <label>2nd Place Points</label>
+                <input type="number" id="secondPoint" value="7">
+            </div>
+
+            <div class="form-grp">
+                <label>3rd Place Points</label>
+                <input type="number" id="thirdPoint" value="5">
+            </div>
+
+            <div class="form-grp">
+                <label>Participation Points</label>
+                <input type="number" id="participationPoint" value="2">
+            </div>
+
+            <div class="form-grp">
+                <label>Max Solo Events / Student</label>
+                <input type="number" id="soloLimit" value="3">
+            </div>
+
+            <div class="form-grp">
+                <label>Max Team Events / Student</label>
+                <input type="number" id="teamLimitRule" value="2">
+            </div>
+
+        </div>
+
+        <button type="button" class="submit-btn" onclick="saveEventRules()"> Save Rules </button>
+
+    </div>
+
+    <!-- Registered Events -->
 
       <div class="table-box">
 
@@ -128,144 +248,20 @@
               <th>Date</th>
               <th>Venue</th>
               <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
 
-          <tbody id="eventTable">
-
-            <tr>
-              <td>Football Finals</td>
-              <td>EV201</td>
-              <td>2026-07-12</td>
-              <td>Main Stadium</td>
-              <td>Active</td>
-            </tr>
-
-            <tr>
-              <td>Long Jump</td>
-              <td>EV202</td>
-              <td>2026-07-14</td>
-              <td>Track Arena</td>
-              <td>Pending</td>
-            </tr>
-
-            <tr>
-              <td>100M Sprint</td>
-              <td>EV203</td>
-              <td>2026-07-16</td>
-              <td>Running Track</td>
-              <td>Completed</td>
-            </tr>
-
-          </tbody>
+          <tbody id="eventTable"></tbody>
 
         </table>
 
       </div>
 
-    </div>
-
-    <!-- RIGHT SIDE -->
-
-    <div class="preview">
-
-      <h3>Event Preview</h3>
-
-      <p><strong>Name:</strong> <span id="pName">100M Sprint</span></p>
-      <br>
-
-      <p><strong>ID:</strong> <span id="pId">EV101</span></p>
-      <br>
-
-      <p><strong>Date:</strong> <span id="pDate">2026-06-20</span></p>
-      <br>
-
-      <p><strong>Venue:</strong> <span id="pVenue">Main Ground</span></p>
-
-      <div class="status" id="pStatus">
-        Active
-      </div>
-
-    </div>
   </div>
 </div>
-  
 
-<script>
-
-/* Navigation */
-
-
-
-/* Form */
-
-const form = document.getElementById("eventForm");
-
-let total = 3;
-
-form.addEventListener("submit", function(e){
-
-  e.preventDefault();
-
-  const name = document.getElementById("eventName").value;
-  const id = document.getElementById("eventId").value;
-  const date = document.getElementById("eventDate").value;
-  const venue = document.getElementById("venue").value;
-  const status = document.getElementById("status").value;
-
-  // Preview
-
-  document.getElementById("pName").innerText = name;
-  document.getElementById("pId").innerText = id;
-  document.getElementById("pDate").innerText = date;
-  document.getElementById("pVenue").innerText = venue;
-  document.getElementById("pStatus").innerText = status;
-
-  // Event Table
-
-  const row = `
-    <tr>
-      <td>${name}</td>
-      <td>${id}</td>
-      <td>${date}</td>
-      <td>${venue}</td>
-      <td>${status}</td>
-    </tr>
-  `;
-
-  document.getElementById("eventTable").innerHTML += row;
-
-  // Logs Table
-
-  // const today = new Date();
-
-  // const logRow = `
-  //   <tr>
-  //     <td>${name}</td>
-  //     <td>New Event Added</td>
-  //     <td>${today.toLocaleDateString()}</td>
-  //     <td>${today.toLocaleTimeString()}</td>
-  //     <td>
-  //       <span class="log-active">
-  //         ${status}
-  //       </span>
-  //     </td>
-  //   </tr>
-  // `;
-
-  // document.getElementById("logsTable").innerHTML += logRow;
-
-  // Update Total Events
-
-  total++;
-
-  document.getElementById("totalEvents").innerText = total;
-
-  form.reset();
-
-});
-
-</script>
+<script src="event-control.js"></script>
 
 </body>
 </html>

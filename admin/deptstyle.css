@@ -298,7 +298,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: baseline;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .dept-name h2{
@@ -392,4 +393,28 @@ th,td{
 
 tbody tr{
     border-top:1px solid #ddd;
+}
+
+.tbl-btn{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin:0 5px;
+    background:#f1f5f9;
+    transition:0.3s;
+}
+
+.tbl-btn i{
+    color:#2563eb;
+    font-size:16px;
+}
+
+.tbl-btn.delete i{
+    color:#dc2626;
+}
+
+.tbl-btn:hover{
+    transform:scale(1.1);
 }

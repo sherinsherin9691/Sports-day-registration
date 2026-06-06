@@ -227,34 +227,22 @@ th{
 }
 
 .active{
-  background:#22c55e;
+    background:#22c55e;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+}
+
+.pending{
+    background:#f59e0b;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
 }
 
 .completed{
-  background:#2563eb;
-}
-
-.cancelled{
-  background:#ef4444;
-}
-
-.log-active{
-  background:#22c55e;
-  color:white;
-  padding:6px 12px;
-  border-radius:20px;
-}
-
-.log-update{
-  background:#2563eb;
-  color:white;
-  padding:6px 12px;
-  border-radius:20px;
-}
-
-.log-cancel{
-  background:#ef4444;
-  color:white;
-  padding:6px 12px;
-  border-radius:20px;
+    background:#2563eb;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
 }

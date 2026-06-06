@@ -6,6 +6,7 @@
     <title>Admin Dashboard</title>
 
     <link rel="stylesheet" href="deptstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 <body>
@@ -50,23 +51,23 @@
       <!-- ------------------cards----------------- -->
       <div class="cards">
         <div class="card">
-          <h3>24</h3>
-          <p>Total Departments</p>
+            <h3 id="totalDepartments">0</h3>
+            <p>Total Departments</p>
         </div>
 
         <div class="card">
-          <h3>25</h3>
-          <p>Total Events</p>
+            <h3 id="deptEvents">0</h3>
+            <p>Total Events</p>
         </div>
 
         <div class="card">
-          <h3>450</h3>
-          <p>Total Students</p>
+            <h3 id="deptStudents">0</h3>
+            <p>Total Students</p>
         </div>
 
         <div class="card">
-          <h3>10</h3>
-          <p>Completed Events</p>
+            <h3 id="deptCompletedEvents">0</h3>
+            <p>Completed Events</p>
         </div>
       </div>
 
@@ -76,44 +77,44 @@
 
         <div class="new-dept">
             <h3>New Department Registrations</h3>
-            <form>
+            <form id="departmentForm">
                 <div class="dept-reg">
                     
                     <div class="form-grp">
                         <label for="name">Department</label>
-                        <input type="name" placeholder="Enter your Department">
+                        <input type="text" id="department" placeholder="Enter Department">
                     </div>
                     
                     <div class="form-grp">
                         <label for="name">Full Name</label>
-                        <input type="name" placeholder="Enter your Name">
+                        <input type="text" id="coordinator" placeholder="Enter Name">
                     </div>
                     
                     <div class="form-grp">
                         <label for="email">Email ID</label>
-                        <input type="email" placeholder="Enter your Email">
+                        <input type="email" id="email" placeholder="Enter Email">
                     </div>
                     
                     <div class="form-grp">
                         <label for="phone">Contact</label>
-                        <input type="tel" placeholder="Enter your Contact">
+                        <input type="tel" id="contact" placeholder="Enter Contact">
                     </div>
                     
                     <div class="form-grp">
                         <label for="total">Total Students</label>
-                        <input type="text" placeholder="Total Students ">
+                        <input type="number" id="students" placeholder="Total Students">
                     </div>
                     
                     <div class="form-grp">
                         <label>Shift</label>
-                        <select>
+                        <select id="shift">
                             <option>Select Shift</option>
                             <option>Shift-I</option>
                             <option>Shift-II</option>
                         </select>
                     </div>
 
-                      <button type="reset" class="reset-btn">Reset</button>
+                      <button type="reset" id="resetBtn" class="reset-btn">Reset</button>
                       <button type="submit" class="submit-btn">Add Department</button>
 
                 </div>
@@ -126,49 +127,49 @@
 
           <div class="pre-box">
 
-            <div class="circle-logo">ED</div>
+            <div class="circle-logo" id="previewLogo"> </div>
 
             <div class="dept-name">
 
               <h2>New Department : </h2>
-              <p>Electronics</p>
+              <p id="previewDepartment"> </p>
 
             </div>
             <div class="preview-details">
 
               <div class="detail-card">
 
-                <p><strong>Coordinator :</strong><span>Dr. Johnson</span></p>
+                <p><strong>Coordinator :</strong><span id="previewCoordinator"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Contact :</strong><span>95432 45687</span></p>
+                <p><strong>Contact :</strong><span id="previewContact"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Shift :</strong><span>Shift-I</span></p>
+                <p><strong>Shift :</strong><span id="previewShift"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Total Students :</strong><span>70</span></p>
+                <p><strong>Total Students :</strong><span id="previewStudents"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Department ID :</strong><span>26SD101</span></p>
+                <p><strong>Department ID :</strong><span id="previewDeptId"> </span></p>
 
               </div>
               <div class="detail-card">
 
-                <p><strong>Password :</strong><span>SE23D7T</span></p>
+                <p><strong>Password :</strong><span id="previewPassword"> </span></p>
 
               </div>
 
             </div>
-            <button class="edit-btn">Edit</button>
+            <!-- <button class="edit-btn">Edit</button> -->
 
           </div>
 
@@ -182,7 +183,7 @@
         <div class="table-header">
 
           <h2>Existing Department</h2>
-          <input type="search" placeholder="Search.........">
+          <input type="search" id="searchDept" placeholder="Search Department">
 
         </div>
 
@@ -195,34 +196,12 @@
               <th>COORDINATOR</th>
               <th>Department ID</th>
               <th>Contact</th>
+              <th>Actions</th>
             </tr>
 
           </thead>
 
-          <tbody>
-
-            <tr>
-              <td>IT</td>
-              <td>Dr.John Kennady</td>
-              <td>25IT6UG</td>
-              <td>98787 98766</td>
-            </tr>
-
-            <tr>
-              <td>Bcom</td>
-              <td>S. Bharath</td>
-              <td>25BC67T</td>
-              <td>94448 49752</td>
-            </tr>
-
-            <tr>
-              <td>Computer Science</td>
-              <td>Dr. Antony</td>
-              <td>25CS768U</td>
-              <td>78845 24682</td>
-            </tr>
-
-          </tbody>
+          <tbody id="departmentTable"></tbody>
 
         </table>
 
@@ -232,6 +211,8 @@
     </div>
 
   </div>
+
+  <script src="dept.js"></script>
 
 </body>
 </html>

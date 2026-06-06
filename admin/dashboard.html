@@ -56,25 +56,27 @@
 
       <!-- ------------------cards----------------- -->
       <div class="cards">
+
         <div class="card">
-          <h3>1500</h3>
+          <h3 id="totalRegistrations">0</h3>
           <p>Total Registrations</p>
         </div>
 
         <div class="card">
-          <h3>25</h3>
+          <h3 id="totalEvents">0</h3>
           <p>Total Events</p>
         </div>
 
         <div class="card">
-          <h3>450</h3>
+          <h3 id="totalStudents">0</h3>
           <p>Total Students</p>
         </div>
 
         <div class="card">
-          <h3>10</h3>
+          <h3 id="completedEvents">0</h3>
           <p>Completed Events</p>
         </div>
+
       </div>
 
       <!-- ---------------------Chart------------------- -->
@@ -84,7 +86,7 @@
           <div class="circle-chart">
 
             <div class="inner-circle">
-              <h1>35</h1>
+              <h1 id="eventTotal">0</h1>
               <p>Total</p>
             </div>
 
@@ -94,93 +96,30 @@
 
             <div class="status">
               <span class="dot dark"></span>
-              <p class="state" >Upcoming</p>
-              <span>15</span>
-            </div>
+              <p class="state">Upcoming</p>
+              <span id="upcomingCount">0</span>
+          </div>
 
-            <div class="status">
+          <div class="status">
               <span class="dot medium"></span>
-              <p class="state" >Ongoing</p>
-              <span>12</span>
-            </div>
+              <p class="state">Ongoing</p>
+              <span id="ongoingCount">0</span>
+          </div>
 
-            <div class="status">
+          <div class="status">
               <span class="dot light"></span>
-              <p class="state" >Completed</p>
-              <span>08</span>
-            </div>
+              <p class="state">Completed</p>
+              <span id="completedCount">0</span>
+          </div>
 
           </div>
 
         </div>
 
-        <div class="chart-bar">
-          <h3>Department Scores</h3>
-          
-          <div class="score-box">
+        <div class="department-score-card">
 
-            <div class="score-title">
-              <span>Computer Science</span>
-              <span>22</span>
-            </div>
-
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-
-          </div>
-
-          <div class="score-box">
-
-            <div class="score-title">
-              <span>Bontony</span>
-              <span>20</span>
-            </div>
-
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-
-          </div>
-
-          <div class="score-box">
-
-            <div class="score-title">
-              <span>IT</span>
-              <span>18</span>
-            </div>
-
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-
-          </div>
-
-          <div class="score-box">
-
-            <div class="score-title">
-              <span>Bcom</span>
-              <span>16</span>
-            </div>
-
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-
-          </div>
-
-          <div class="score-box">
-
-            <div class="score-title">
-              <span>English</span>
-              <span>16</span>
-            </div>
-
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-
-          </div>
+            <h3>Department Scores</h3>
+            <div id="scoreContainer"></div>
 
         </div>
 
@@ -192,47 +131,22 @@
         <div class="table-header">
 
           <h2>Recent Updates</h2>
-          <a href="#">View All</a>
+          <a href="/admin-event/eventlogs.html">View All</a>
 
         </div>
 
         <table>
 
           <thead>
-
             <tr>
               <th>EVENT</th>
-              <th>CATEGORY</th>
-              <th>COORDINATOR</th>
+              <th>ACTIVITY</th>
+              <th>DATE</th>
               <th>STATUS</th>
             </tr>
-
           </thead>
 
-          <tbody>
-
-            <tr>
-              <td>100m Sprint</td>
-              <td>Solo</td>
-              <td>Dr.John Kennady</td>
-              <td class="pending">Pending</td>
-            </tr>
-
-            <tr>
-              <td>Football</td>
-              <td>Team</td>
-              <td>S. Bharath</td>
-              <td class="completed">Completed</td>
-            </tr>
-
-            <tr>
-              <td>Long jump</td>
-              <td>Solo</td>
-              <td>Dr. Antony</td>
-              <td class="completed">Completed</td>
-            </tr>
-
-          </tbody>
+          <tbody id="recentActivity"></tbody>
 
         </table>
 
@@ -242,6 +156,8 @@
     </div>
 
   </div>
+
+<script src="dashboard.js"></script>
 
 </body>
 </html>
