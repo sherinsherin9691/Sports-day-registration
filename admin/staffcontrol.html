@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="staffstyle.css">
+
+</head>
+<body>
+
+  <div class="container">
+   <!-- ----------------------Sidebar---------------------------- --> 
+    <div class="sidebar">
+     
+      <aside>
+        <ul class="menu">
+          <h2>Sports Day'26</h2>
+          <h4>Managing Athletics'26</h4>
+          <li><a href="dashboard.html" >Dashboard</a></li>
+          <li><a href="deptcenter.html">Department Center</a></li>
+          <li><a href="staffcontrol.html" class="active">Staff Control</a></li>
+          <li><a href="event-control.html">Event Control</a></li>
+          <li><a href="eventlogs.html">Event Logs</a></li>
+        </ul>
+
+        <div class="bottom-menu">
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- -----------------------Main Content---------------------------- -->
+    <div class="main-content">
+      
+      <div class="top-bar">
+        <div class="title-group">
+          <h2>Staff Control</h2>
+          <p>Here you can manage all the staff details includes adding, removing staff.</p>
+        </div>
+        
+      </div>
+
+      <!-- ------------------cards----------------- -->
+      <div class="cards">
+        <div class="card">
+          <h3>23</h3>
+          <p>Total Manager</p>
+        </div>
+
+        <div class="card">
+          <h3>25</h3>
+          <p>Total Events</p>
+        </div>
+
+        <div class="card">
+          <h3>450</h3>
+          <p>Total Students</p>
+        </div>
+
+        <div class="card">
+          <h3>10</h3>
+          <p>Completed Events</p>
+        </div>
+      </div>
+
+      <!-- ---------------------------Staff Reg-------------------------- -->
+      <div class="staff-box">
+
+        <div class="new-staff">
+            <h3>Event Manager Registration</h3>
+            <form>
+                <div class="staff-reg">
+                    
+                    <div class="form-grp">
+                        <label for="name">Department</label>
+                        <input type="name" placeholder="Enter your Department">
+                    </div>
+                    
+                    <div class="form-grp">
+                        <label for="name">Full Name</label>
+                        <input type="name" placeholder="Enter your Name">
+                    </div>
+                    
+                    <div class="form-grp">
+                        <label for="email">Staff ID</label>
+                        <input type="text" placeholder="Enter your ID">
+                    </div>
+                    
+                    <div class="form-grp">
+                        <label for="phone">Contact</label>
+                        <input type="tel" placeholder="Enter your Contact">
+                    </div>
+                    
+                    <div class="form-grp">
+                        <label>Shift</label>
+                        <select>
+                            <option>Select Shift</option>
+                            <option>Shift-I</option>
+                            <option>Shift-II</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-grp">
+                        <label>In-Charge</In-Charge></label>
+                        <select>
+                            <option>Select Event</option>
+                            <option>Foot Ball</option>
+                            <option>Volley Ball</option>
+                            <option>Basket Ball</option>
+                            <option>100m Sprint</option>
+                        </select>
+                    </div>
+
+                      <button type="reset" class="reset-btn">Reset</button>
+                      <button type="submit" class="submit-btn">Add Staff</button>
+
+                </div>
+            </form>
+
+        </div>
+
+        <div class="staff-details">
+          <h3>New Eventmanager Details</h3>
+
+          <div class="pre-box">
+
+            <div class="circle-logo">ED</div>
+
+            <div class="staff-name">
+
+              <h2>New Event Manager </h2>
+
+            </div>
+            <div class="preview-details">
+
+              <div class="detail-card">
+
+                <p><strong>Staff Name :</strong><span>Dr. Johnson</span></p>
+
+              </div>
+              <div class="detail-card">
+
+                <p><strong>Contact :</strong><span>95432 45687</span></p>
+
+              </div>
+              <div class="detail-card">
+
+                <p><strong>Shift :</strong><span>Shift-I</span></p>
+
+              </div>
+              <div class="detail-card">
+
+                <p><strong>Events :</strong><span>Foot Ball</span></p>
+
+              </div>
+              <div class="detail-card">
+
+                <p><strong>Manager ID :</strong><span>26SD101</span></p>
+
+              </div>
+              <div class="detail-card">
+
+                <p><strong>Password :</strong><span>SE23D7T</span></p>
+
+              </div>
+
+            </div>
+            <button class="edit-btn">Edit</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- --------------------Table---------------------------- -->
+      <div class="table-box">
+
+        <div class="table-header">
+
+          <h2>Existing Event Managers</h2>
+          <input type="search" placeholder="Search.........">
+
+        </div>
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>Staff ID</th>
+              <th>Name</th>
+              <th>Manager ID</th>
+              <th>Contact</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>25IT6UG</td>
+              <td>Dr.John Kennady</td>
+              <td>25BC67T</td>
+              <td>98787 98766</td>
+            </tr>
+
+            <tr>
+              <td>25BC67T</td>
+              <td>S. Bharath</td>
+              <td>25CS768U</td>
+              <td>94448 49752</td>
+            </tr>
+
+            <tr>
+              <td>25CS768U</td>
+              <td>Dr. Antony</td>
+              <td>25IT6UG</td>
+              <td>78845 24682</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</body>
+</html>
